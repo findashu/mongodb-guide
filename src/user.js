@@ -15,7 +15,11 @@ const UserSchema = new Schema({
         required:[true, 'Name is required']
     }, 
     posts:[PostSchema],
-    likes:Number
+    likes:Number,
+    blogPosts: [{
+        type: Schema.Types.ObjectId,
+        ref : 'blogPost'
+    }]
 });
 
 //adding virtual property(to get number of posts a user has)
@@ -24,6 +28,6 @@ UserSchema.virtual('postCount').get(function() {
 });
 
 
-const User = mongoose.model('users', UserSchema);
+const User = mongoose.model('user', UserSchema);
 
 module.exports = User;
