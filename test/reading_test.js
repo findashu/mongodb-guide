@@ -24,5 +24,4 @@ describe('Reading users out of the database', (done) => {
                 done();
             })
     });
-
 });
